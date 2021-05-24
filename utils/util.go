@@ -4,6 +4,8 @@ import (
 	"database/sql"
 	"fmt"
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/orm"
+
 	//切记：导入驱动包
 	_ "github.com/go-sql-driver/mysql"
 	"log"
@@ -17,7 +19,7 @@ func InitMysql() {
 	driverName := beego.AppConfig.String("driverName")
 
 	//注册数据库驱动
-	//orm.RegisterDriver(driverName, orm.DRMySQL)
+	orm.RegisterDriver(driverName, orm.DRMySQL)
 
 	//数据库连接
 	user := beego.AppConfig.String("mysqluser")
